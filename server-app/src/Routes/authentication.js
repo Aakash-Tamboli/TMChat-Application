@@ -1,10 +1,20 @@
 const express = require("express");
-const { signup, login, logout } = require("../Controllers/authentication");
+const {
+  signup,
+  login,
+  logout,
+  updateProfile,
+  checkAuthenticated,
+} = require("../Controllers/authentication");
 
-const authenticationRouter = express.Router();
+const isAuthenticRequest = require("../Middlewares/authentication");
 
-authenticationRouter.post("/signup",signup);
-authenticationRouter.post("/login",login);
-authenticationRouter.post("/logout",logout);
+const router = express.Router();
 
-module.exports = authenticationRouter;
+router.post("/signup", signup);
+router.post("/login", login);
+router.post("/logout", logout);
+router.put("/update/profile-pic", isAuthenticRequest, updateProfile);
+router.get("/check", isAuthenticRequest, checkAuthenticated);
+
+module.exports = router;

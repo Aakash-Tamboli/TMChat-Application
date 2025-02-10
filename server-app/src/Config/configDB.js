@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-async function configureDB(app) {
+async function configureDB(server) {
   try {
     const CONNECTION_URL = process.env.CONNECTION_URL;
     const PORT = process.env.PORT;
     const connection = await mongoose.connect(CONNECTION_URL);
-    app.listen(PORT, () => {
+    server.listen(PORT, () => {
       console.log(`Chat Application server is listening at ${PORT}...`);
     });
   } catch (error) {
