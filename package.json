@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm install --prefix server-app && npm install --prefix client-app && npm run build --prefix client-app ",
-    "start": "npm run start --prefix backend"
+    "start": "npm run start --prefix server-app"
   },
   "keywords": [],
   "author": "",
