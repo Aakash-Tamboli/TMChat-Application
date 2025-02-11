@@ -1,4 +1,4 @@
-## .env Strucuture
+## .env Structure
 NODE_ENV only for development
 ```
 CONNECTION_URL=PASTE_HERE
