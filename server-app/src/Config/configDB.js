@@ -1,4 +1,6 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+
+import mongoose from "mongoose";
 
 async function configureDB(server) {
   try {
@@ -15,4 +17,5 @@ async function configureDB(server) {
   }
 }
 
-module.exports = configureDB;
+// module.exports = configureDB;
+export default configureDB;

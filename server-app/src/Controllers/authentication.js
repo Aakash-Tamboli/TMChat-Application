@@ -1,7 +1,15 @@
+/*
+
 const User = require("../Models/user.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../Config/cloudinary.js");
+*/
+
+import User from "../Models/user.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import cloudinary from "../Config/cloudinary.js";
 
 async function generateToken(userId, response) {
   const SECRET_KEY = process.env.SECRET_KEY;
@@ -20,6 +28,7 @@ async function generateToken(userId, response) {
 
 async function signup(request, response) {
   const { fullName, email, password } = request.body;
+  console.log("Hiii");
   try {
     if (!fullName || !email || !password) {
       return response.status(400).json({
@@ -82,10 +91,10 @@ async function login(request, response) {
       return response.status(400).json({ message: "Invalid Credentials" });
     }
 
-    const isPasswordCorrect = await bcrypt.compare(password,user.password);
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
-    if(!isPasswordCorrect) {
-      return response.status(400).json({message: "Invalid Credentials"});
+    if (!isPasswordCorrect) {
+      return response.status(400).json({ message: "Invalid Credentials" });
     }
 
     generateToken(user._id, response);
@@ -128,7 +137,7 @@ async function updateProfile(request, response) {
       {
         profilePic: uploadResponse.secure_url,
       },
-      { new: true }
+      { new: true },
     );
 
     response.status(200).json({ updatedUser: updatedDocument });
@@ -148,7 +157,17 @@ function checkAuthenticated(request, response) {
   }
 }
 
+/*
 module.exports = {
+  signup,
+  login,
+  logout,
+  generateToken,
+  updateProfile,
+  checkAuthenticated,
+};
+*/
+export {
   signup,
   login,
   logout,

@@ -1,7 +1,16 @@
+/*
+
 const User = require("../Models/user");
 const Message = require("../Models/message");
 const cloudinary = require("../Config/cloudinary");
 const { getReceiverSocketId, socketIO } = require("../Config/socket");
+
+*/
+
+import User from "../Models/user.js";
+import Message from "../Models/message.js";
+import cloudinary from "../Config/cloudinary.js";
+import { getReceiverSocketId, socketIO } from "../Config/socket.js";
 
 async function getUsersForSidebar(request, response) {
   try {
@@ -69,8 +78,11 @@ async function sendMessage(request, response) {
   }
 }
 
+/*
 module.exports = {
   getUsersForSidebar,
   getMessages,
   sendMessage,
 };
+*/
+export { getUsersForSidebar, getMessages, sendMessage };

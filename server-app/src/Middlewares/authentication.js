@@ -1,5 +1,10 @@
+/*
 const jwt = require("jsonwebtoken");
 const User = require("../Models/user");
+*/
+
+import jwt from "jsonwebtoken";
+import User from "../Models/user.js";
 
 async function isAuthenticRequest(request, response, next) {
   try {
@@ -32,4 +37,5 @@ async function isAuthenticRequest(request, response, next) {
   }
 }
 
-module.exports = isAuthenticRequest;
+// module.exports = isAuthenticRequest;
+export default isAuthenticRequest;
