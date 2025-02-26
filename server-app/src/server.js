@@ -22,6 +22,10 @@ import { app, server } from "./Config/socket.js";
 
 dotEnv.config();
 
+const __dirname = path.resolve(); // I don't know why but __dirname
+// not available in render environment
+// So this is sol. suggest by my friend.
+
 // middlewares setup
 /*
 Help get from CHAT-GPT, while 
